@@ -11,8 +11,8 @@ import (
 	"sort"
 	"strings"
 
-	"h12.io/html-query"
-	. "h12.io/html-query/expr"
+	query "github.com/dandycheung/html-query"
+	. "github.com/dandycheung/html-query/expr"
 )
 
 const (

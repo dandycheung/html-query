@@ -9,11 +9,26 @@ import (
 	"io"
 	"net/http"
 
-	"h12.io/html-query"
-	. "h12.io/html-query/expr"
+	query "github.com/dandycheung/html-query"
+	. "github.com/dandycheung/html-query/expr"
 )
 
 func main() {
+	etherscan()
+}
+
+func etherscan() {
+	r := get(`https://cn.etherscan.com/address/0xb3dfb4ced9772f2c012265e755744deebb2891de`)
+	defer r.Close()
+	root, err := query.Parse(r)
+	checkError(err)
+	textCode := root.Pre(Id("editor")).Text()
+	if textCode != nil {
+		pn(*textCode)
+	}
+}
+
+func golang() {
 	r := get(`http://blog.golang.org/index`)
 	defer r.Close()
 	root, err := query.Parse(r)

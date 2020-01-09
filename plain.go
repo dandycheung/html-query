@@ -8,8 +8,8 @@ import (
 	"bytes"
 	"strings"
 
+	"github.com/dandycheung/html-query/expr"
 	"golang.org/x/net/html"
-	"h12.io/html-query/expr"
 )
 
 func (n *Node) PlainText() *string {
